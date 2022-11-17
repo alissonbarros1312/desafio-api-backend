@@ -12,12 +12,13 @@ describe('Product Review', ()=>{
             expect(response.body.reviewer_email).to.be.equal(body.productReviewValido.reviewer_email)
             expect(response.body.product_id).to.equal(body.productReviewValido.product_id)
             expect(response.body.rating).to.equal(body.productReviewValido.rating)
+            cy.deleteProductReview(response.body.id)
         })
     })
 
     it('Create Product Review - Contrato', ()=>{
         cy.postProductReview().should((response)=>{
-            return productReviewSchema.validateAsync(response.body) 
+            return productReviewSchema.validateAsync(response.body)
         })
     })
 
@@ -29,6 +30,7 @@ describe('Product Review', ()=>{
                 expect(response.body.reviewer_email).to.be.equal(body.productReviewValido.reviewer_email)
                 expect(response.body.product_id).to.equal(body.productReviewValido.product_id)
                 expect(response.body.rating).to.equal(body.productReviewValido.rating)
+                cy.deleteProductReview(response.body.id)
             })
         })
     })
