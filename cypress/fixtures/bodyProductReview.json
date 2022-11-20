@@ -1,7 +1,7 @@
 {
     "productReviewValido": {
         "product_id": 22,
-        "reviewer_email": "john.doe@example.com",
+        "reviewer": "John Doe",
         "rating": 5
     }
 }
