@@ -1,7 +1,6 @@
 /// <reference types="cypress"/>
-import header from  '../../fixtures/headerProductReview.json'
-import { faker } from '@faker-js/faker'
-import body from '../../fixtures/bodyProductReview.json'
+import header from  '../../fixtures/productReview/headerProductReview.json'
+import body from '../../fixtures/productReview/bodyProductReview.json'
 
 Cypress.Commands.add('postProductReview', (review, reviewerEmail)=>{
     cy.request({
@@ -35,10 +34,10 @@ Cypress.Commands.add('postProductReview', (review, reviewerEmail)=>{
         })
     })
 
-    Cypress.Commands.add('deleteProductReview', (id)=>{
+    Cypress.Commands.add('deleteProductReview', (id, force)=>{
         cy.request({
             method: 'DELETE',
-            url: Cypress.config('baseUrl') + Cypress.env('urlProductReview') + `${id}?force=true`,
+            url: Cypress.config('baseUrl') + Cypress.env('urlProductReview') + `${id}?force=${force}`,
             headers:{
                 Authorization: header.token,
                 ContentType: header.ContentType
