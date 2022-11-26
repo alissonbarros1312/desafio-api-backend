@@ -19,7 +19,7 @@ Cypress.Commands.add('postProductReview', (review, reviewerEmail)=>{
         }
     })
 
-    Cypress.Commands.add('putProductReview', (id, reviewer)=>{
+    Cypress.Commands.add('putProductReview', (id, reviewer, rating)=>{
         cy.request({
             method: 'PUT',
             url: Cypress.config('baseUrl') + Cypress.env('urlProductReview') + `${id}`,
@@ -28,7 +28,8 @@ Cypress.Commands.add('postProductReview', (review, reviewerEmail)=>{
                 ContentType: header.ContentType
             },    
             body:{
-                "reviewer": reviewer
+                "reviewer": reviewer,
+                "rating": rating
             }  
 
         })

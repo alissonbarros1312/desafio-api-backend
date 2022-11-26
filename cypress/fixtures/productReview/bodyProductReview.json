@@ -3,5 +3,10 @@
         "product_id": 22,
         "reviewer": "John Doe",
         "rating": 5
+    },
+    "productReviewUpdate": {
+        "product_id": 22,
+        "reviewer": "John Doe",
+        "rating": 4
     }
 }
